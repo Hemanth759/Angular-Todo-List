@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Todo } from '../../models/todo';
 
@@ -9,7 +9,7 @@ import { Todo } from '../../models/todo';
 })
 export class TodoItemComponent implements OnInit {
 
-  todo: Todo;
+  @Input() todo: Todo;
 
   constructor() { 
     
