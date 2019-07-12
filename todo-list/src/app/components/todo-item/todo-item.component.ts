@@ -12,10 +12,20 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
 
   constructor() { 
-    
+
   }
 
   ngOnInit() {
+  }
+
+  // Set dynamic class
+  setClass() {
+    let classes = {
+      todo: true,
+      'is-Complete': this.todo.completed
+    }
+
+    return classes;
   }
 
 }
