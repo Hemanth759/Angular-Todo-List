@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 import { Todo } from '../models/todo';
 
@@ -7,25 +10,11 @@ import { Todo } from '../models/todo';
 })
 export class TodoService {
 
-  constructor() { }
+  todosURL: string = 'https://jsonplaceholder.typicode.com/todos';
 
-  getTodo(): Todo[] {
-    return [
-      {
-        id: 1,
-        title: "Eat apple",
-        completed: false
-      },
-      {
-        id: 2,
-        title: "Eat another apple",
-        completed: true
-      },
-      {
-        id: 3,
-        title: "do bath",
-        completed: false
-      },
-    ];
+  constructor(private http: HttpClient) { }
+
+  getTodo(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.todosURL);
   }
 }
