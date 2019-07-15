@@ -28,7 +28,7 @@ export class TodoService {
 
   // toggles todo status
   toggleCompleted(todo: Todo):Observable<any> {
-    const url = `${this.todosURL}/${todo.id}`
+    const url = `${this.todosURL}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
   }
 }
